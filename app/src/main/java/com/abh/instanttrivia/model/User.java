@@ -8,8 +8,11 @@ public class User {
     private String password;
     private String email;
 
-    private User(){
-
+    private User(Builder builder){
+        this.id = builder.id;
+        this.username = builder.username;
+        this.password = builder.password;
+        this.email = builder.email;
     }
 
     public static class Builder{
@@ -22,15 +25,30 @@ public class User {
 
         }
 
-        public int id(int id){
+        public Builder id(int id){
+            this.id = id;
+            return this;
+        }
 
+        public Builder username(String username){
+            this.username = username;
+            return this;
+        }
+
+        public Builder password(String password){
+            this.password = password;
+            return this;
+        }
+
+        public Builder email(String email){
+            this.email = email;
+            return this;
         }
 
         public User build(){
             return new User(this);
         }
     }
-
 
     //GETTERS & SETTERS
     public int getId() {
