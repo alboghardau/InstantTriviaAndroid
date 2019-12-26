@@ -4,7 +4,7 @@ import com.abh.instanttrivia.model.User;
 
 public class UserHandler {
 
-    User logegedUser;
+    User logedUser;
 
 
 

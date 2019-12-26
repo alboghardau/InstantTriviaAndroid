@@ -25,8 +25,9 @@ public class LoginActivity extends AppCompatActivity {
         //UI ELEMENTS
         usernameText = (TextView) findViewById(R.id.usernameText);
         passwordText = (TextView) findViewById(R.id.passwordText);
-
         loginButton = (Button) findViewById(R.id.loginButton);
+
+
 
     }
 }
