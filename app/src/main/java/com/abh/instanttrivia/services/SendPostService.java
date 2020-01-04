@@ -1,6 +1,7 @@
 package com.abh.instanttrivia.services;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 import java.io.DataOutputStream;
 import java.io.InputStream;
@@ -41,11 +42,12 @@ public class SendPostService extends AsyncTask<String,Void,String> {
                 httpURLConnection.disconnect();
             }
         }
-        return null;
+        return data;
     }
 
     @Override
     protected void onPostExecute(String result){
-
+        super.onPostExecute(result);
+        Log.e("TAG", result);
     }
 }
