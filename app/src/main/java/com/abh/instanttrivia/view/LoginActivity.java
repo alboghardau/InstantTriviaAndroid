@@ -36,8 +36,8 @@ public class LoginActivity extends AppCompatActivity {
 
         JSONObject postData = new JSONObject();
         try{
-            postData.put("email", "nelu@gmail.com");
-            postData.put("username" , "nelu");
+            postData.put("email", "nelu8@gmail.com");
+            postData.put("username" , "nelu8");
             postData.put("password", "1234");
 
             new SendPostService().execute("http://itrivia.eu/api/user/register.php", postData.toString());
