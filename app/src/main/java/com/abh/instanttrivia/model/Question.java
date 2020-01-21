@@ -6,6 +6,7 @@ public class Question {
     private String question;
     private String answer;
     private double difficulty;
+    private Category category;
 
     public int getId() {
         return id;
@@ -37,5 +38,13 @@ public class Question {
 
     public void setDifficulty(double difficulty) {
         this.difficulty = difficulty;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }
