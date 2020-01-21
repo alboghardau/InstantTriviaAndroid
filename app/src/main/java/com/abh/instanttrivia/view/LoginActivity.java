@@ -8,6 +8,10 @@ import android.widget.TextView;
 
 import com.abh.instanttrivia.R;
 import com.abh.instanttrivia.model.User;
+import com.abh.instanttrivia.services.SendPostService;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -23,10 +27,23 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         //UI ELEMENTS
-        usernameText = (TextView) findViewById(R.id.usernameText);
-        passwordText = (TextView) findViewById(R.id.passwordText);
-        loginButton = (Button) findViewById(R.id.loginButton);
+//        usernameText = (TextView) findViewById(R.id.usernameText);
+//        passwordText = (TextView) findViewById(R.id.passwordText);
+//        loginButton = (Button) findViewById(R.id.loginButton);
 
+
+        //test
+
+        JSONObject postData = new JSONObject();
+        try{
+            postData.put("email", "nelu@gmail.com");
+            postData.put("username" , "nelu");
+            postData.put("password", "1234");
+
+            new SendPostService().execute("http://itrivia.eu/api/user/register.php", postData.toString());
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
 
 
     }
