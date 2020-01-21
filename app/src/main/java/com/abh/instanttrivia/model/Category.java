@@ -3,9 +3,9 @@ package com.abh.instanttrivia.model;
 public class Category {
 
     private int id;
-    private string name;
+    private String name;
 
-    public Category(int id, string name) {
+    public Category(int id, String name) {
         this.id = id;
         this.name = name;
     }
@@ -16,5 +16,13 @@ public class Category {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
