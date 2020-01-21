@@ -5,19 +5,24 @@ import com.abh.instanttrivia.model.User;
 
 public class UserService implements UserInterface {
 
+    private User user;
+
+    public UserService(User user) {
+        this.user = user;
+    }
+
     @Override
-    public void registerUser(User user) {
+    public void registerUser() {
 
     }
 
     @Override
-    public void loginUser(User user) {
+    public void loginUser() {
 
     }
 
     @Override
-    public void checkToken(String token) {
+    public void checkToken() {
 
     }
-
 }

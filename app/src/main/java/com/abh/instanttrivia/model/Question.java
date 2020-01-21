@@ -47,4 +47,15 @@ public class Question {
     public void setCategory(Category category) {
         this.category = category;
     }
+
+    @Override
+    public String toString() {
+        return "Question{" +
+                "id=" + id +
+                ", question='" + question + '\'' +
+                ", answer='" + answer + '\'' +
+                ", difficulty=" + difficulty +
+                ", category=" + category +
+                '}';
+    }
 }

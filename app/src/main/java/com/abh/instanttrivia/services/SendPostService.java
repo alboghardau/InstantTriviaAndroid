@@ -10,6 +10,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class SendPostService extends AsyncTask<String,Void,String> {
+
     @Override
     protected String doInBackground(String... params) {
 
@@ -48,6 +49,6 @@ public class SendPostService extends AsyncTask<String,Void,String> {
     @Override
     protected void onPostExecute(String result){
         super.onPostExecute(result);
-        Log.e("TAG", result);
+        Log.e("JSON RESPONSE", result);
     }
 }
