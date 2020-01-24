@@ -9,12 +9,7 @@ import android.widget.TextView;
 
 import com.abh.instanttrivia.R;
 import com.abh.instanttrivia.model.Question;
-import com.abh.instanttrivia.model.User;
 import com.abh.instanttrivia.services.QuestionService;
-import com.abh.instanttrivia.services.SendPostService;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -41,13 +36,19 @@ public class LoginActivity extends AppCompatActivity {
 //            postData.put("username" , "nelu8");
 //            postData.put("password", "1234");
 //
-//            new SendPostService().execute("http://itrivia.eu/api/question/getRandomQuestion/", postData.toString());
+//            new WebPostAsync().execute("http://itrivia.eu/api/question/getRandomQuestion/", postData.toString());
 //        }catch (JSONException e){
 //            e.printStackTrace();
 //        }
 
-        QuestionService questionService = new QuestionService(new SendPostService());
-        Question question = questionService.getRandomQuestion();
+
+            QuestionService questionService = new QuestionService();
+            Question question = questionService.getRandomQuestion();
+
+            Log.e("Question", question.toString());
+
+
+
         //Log.e("test", questionService.getRandomQuestion().toString());
 
     }
