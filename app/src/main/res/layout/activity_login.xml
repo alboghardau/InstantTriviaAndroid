@@ -8,29 +8,41 @@
     tools:context=".view.LoginActivity">
 
     <EditText
-        android:id="@+id/usernameText"
+        android:id="@+id/textUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="260dp"
+        android:layout_marginEnd="98dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="260dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/textPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="95dp"
+        android:layout_marginTop="117dp"
+        android:layout_marginEnd="103dp"
         android:ems="10"
         android:inputType="textPassword"
-        tools:layout_editor_absoluteX="95dp"
-        tools:layout_editor_absoluteY="422dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textUsername" />
 
     <Button
-        android:id="@+id/loginButton"
+        android:id="@+id/buttonLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="162dp"
+        android:layout_marginTop="53dp"
+        android:layout_marginEnd="162dp"
         android:text="Button"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="520dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textPassword" />
 </androidx.constraintlayout.widget.ConstraintLayout>

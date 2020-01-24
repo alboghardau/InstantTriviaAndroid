@@ -22,9 +22,10 @@ public class WebPostAsync extends AsyncTask<String,Void,String> {
             httpURLConnection = (HttpURLConnection) new URL(params[0]).openConnection();
             httpURLConnection.setRequestMethod("POST");
             httpURLConnection.setDoOutput(true);
+            httpURLConnection.setRequestProperty("Content-Type","application/json");
 
             DataOutputStream write = new DataOutputStream(httpURLConnection.getOutputStream());
-            write.writeBytes("PostData=" + params[1]);
+            write.writeBytes(params[1]);
             write.flush();
             write.close();
 

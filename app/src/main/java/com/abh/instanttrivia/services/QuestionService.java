@@ -13,6 +13,7 @@ import org.json.JSONObject;
 public class QuestionService implements QuestionInterface {
 
     //TESTED
+    @Override
     public Question getRandomQuestion() {
         try {
             String data   = new WebPostAsync().execute("http://itrivia.eu/api/question/getRandomQuestion/", "").get();

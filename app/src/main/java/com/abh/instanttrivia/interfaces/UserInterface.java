@@ -5,7 +5,7 @@ import com.abh.instanttrivia.model.User;
 public interface UserInterface {
 
     void registerUser();
-    void loginUser();
+    String loginUser();
     void checkToken();
 
 }

@@ -4,20 +4,24 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.abh.instanttrivia.R;
 import com.abh.instanttrivia.model.Question;
+import com.abh.instanttrivia.model.User;
 import com.abh.instanttrivia.services.QuestionService;
+import com.abh.instanttrivia.services.UserService;
 
 public class LoginActivity extends AppCompatActivity {
 
     //UI VARIABLES
-    TextView usernameText;
-    TextView passwordText;
+    TextView textUsername;
+    TextView textPassword;
 
-    Button loginButton;
+    Button buttonLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,31 +29,37 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         //UI ELEMENTS
-//        usernameText = (TextView) findViewById(R.id.usernameText);
-//        passwordText = (TextView) findViewById(R.id.passwordText);
-//        loginButton = (Button) findViewById(R.id.loginButton);
-        //test
+        textUsername = (TextView) findViewById(R.id.textUsername);
+        textPassword = (TextView) findViewById(R.id.textPassword);
+        buttonLogin = (Button) findViewById(R.id.buttonLogin);
 
-//        JSONObject postData = new JSONObject();
-//        try{
-//            postData.put("email", "nelu8@gmail.com");
-//            postData.put("username" , "nelu8");
-//            postData.put("password", "1234");
-//
-//            new WebPostAsync().execute("http://itrivia.eu/api/question/getRandomQuestion/", postData.toString());
-//        }catch (JSONException e){
-//            e.printStackTrace();
-//        }
+        buttonLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(!textUsername.getText().equals("") && !textPassword.getText().equals("")){
+                    User user = new User.Builder()
+                            .email(textUsername.getText().toString())
+                            .password((String) textPassword.getText().toString())
+                            .build();
+                    UserService userService = new UserService(user);
+
+                    String message = userService.loginUser();
+                    if(message.equals("Login succeeded!")){
+                        Toast.makeText(getApplication(), message,
+                                Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(getApplication(), message,
+                                Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+            }
+        });
 
 
-            QuestionService questionService = new QuestionService();
-            Question question = questionService.getRandomQuestion();
-
-            Log.e("Question", question.toString());
 
 
-
-        //Log.e("test", questionService.getRandomQuestion().toString());
 
     }
 }
