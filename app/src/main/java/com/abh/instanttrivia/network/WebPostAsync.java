@@ -1,5 +1,6 @@
-package com.abh.instanttrivia.services;
+package com.abh.instanttrivia.network;
 
+import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -9,7 +10,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class SendPostService extends AsyncTask<String,Void,String> {
+public class WebPostAsync extends AsyncTask<String,Void,String> {
 
     @Override
     protected String doInBackground(String... params) {
