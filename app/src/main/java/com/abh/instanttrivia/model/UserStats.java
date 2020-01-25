@@ -17,8 +17,57 @@ public class UserStats {
 
     private static class Builder{
 
+        private int userId;
+        private int experience;
+        private int level;
+        private int coins;
+        private int played;
+        private int answered;
+        private int correctKeys;
+        private int totalKeys;
+
         public Builder(){
 
+        }
+
+        public Builder userId(int userId){
+            this.userId = userId;
+            return this;
+        }
+
+        public Builder experience(int experience){
+            this.experience = experience;
+            return this;
+        }
+
+        public Builder level(int level){
+            this.level = level;
+            return this;
+        }
+
+        public Builder coins(int coins){
+            this.coins = coins;
+            return this;
+        }
+
+        public Builder played(int played){
+            this.played = played;
+            return this;
+        }
+
+        public Builder answered(int answered){
+            this.answered = answered;
+            return this;
+        }
+
+        public Builder correctKeys(int correctKeys){
+            this.correctKeys = correctKeys;
+            return this;
+        }
+
+        public Builder totalKeys(int totalKeys){
+            this.totalKeys = totalKeys;
+            return this;
         }
 
         public UserStats build(){

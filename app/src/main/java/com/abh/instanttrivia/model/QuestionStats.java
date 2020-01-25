@@ -16,8 +16,51 @@ public class QuestionStats {
 
     public static class Builder{
 
+        private int questionId;
+        private int questionLength;
+        private int answerLength;
+        private int played;
+        private int answered;
+        private int correctKeys;
+        private int totalKeys;
+
         public Builder(){
 
+        }
+
+        public Builder questionId(int questionId){
+            this.questionId = questionId;
+            return this;
+        }
+
+        public Builder questionLength(int questionLength){
+            this.questionLength = questionLength;
+            return this;
+        }
+
+        public Builder answerLength(int answerLength){
+            this.answerLength = answerLength;
+            return this;
+        }
+
+        public Builder played(int played){
+            this.played = played;
+            return this;
+        }
+
+        public Builder answered(int answered){
+            this.answered = answered;
+            return this;
+        }
+
+        public Builder correctKeys(int correctKeys){
+            this.correctKeys = correctKeys;
+            return this;
+        }
+
+        public Builder totalKeys(int totalKeys){
+            this.totalKeys = totalKeys;
+            return this;
         }
 
         public QuestionStats build(){

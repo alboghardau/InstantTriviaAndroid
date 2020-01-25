@@ -24,6 +24,31 @@ public class Question {
 
         }
 
+        public Builder id(int id){
+            this.id = id;
+            return this;
+        }
+
+        public Builder question(String question){
+            this.question = question;
+            return this;
+        }
+
+        public Builder answer(String answer){
+            this.answer = answer;
+            return this;
+        }
+
+        public Builder difficulty(double difficulty){
+            this.difficulty = difficulty;
+            return this;
+        }
+
+        public Builder category(Category category){
+            this.category = category;
+            return this;
+        }
+
         public Question build(){
             return new Question(this);
         }
