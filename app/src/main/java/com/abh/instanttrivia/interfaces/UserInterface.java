@@ -6,6 +6,6 @@ public interface UserInterface {
 
     void registerUser();
     String loginUser();
-    void checkToken();
+    String checkToken();
 
 }

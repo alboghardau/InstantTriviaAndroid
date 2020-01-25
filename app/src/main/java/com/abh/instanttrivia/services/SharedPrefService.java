@@ -20,5 +20,13 @@ public class SharedPrefService {
     public String getPrefString(String name){
         return this.sharedPreferences.getString(name, null);
     }
+
+    public boolean hasKey(String key){
+        if(this.sharedPreferences.contains(key)){
+            return true;
+        }else {
+            return false;
+        }
+    }
 }
 

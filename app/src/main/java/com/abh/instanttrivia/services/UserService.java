@@ -1,5 +1,6 @@
 package com.abh.instanttrivia.services;
 
+import android.content.SharedPreferences;
 import android.util.JsonReader;
 import android.util.Log;
 
@@ -12,9 +13,11 @@ import org.json.JSONObject;
 public class UserService implements UserInterface {
 
     private User user;
+    private SharedPreferences sharedPreferences;
 
-    public UserService(User user) {
+    public UserService(User user, SharedPreferences sharedPreferences) {
         this.user = user;
+        this.sharedPreferences = sharedPreferences;
     }
 
     @Override
@@ -30,17 +33,34 @@ public class UserService implements UserInterface {
             JSONObject jsonObject = new JSONObject(data);
             if(jsonObject.has("Token")) {
                 String token = jsonObject.getString("Token");
+
+                SharedPrefService sharedPrefService = new SharedPrefService(this.sharedPreferences);
+                sharedPrefService.setPrefString("Token", token);
                 Log.e("TOKEN", token);
             }
             return jsonObject.getString("Message");
         }catch (Exception e){
-            Log.e("crash",e.getMessage());
+            Log.e("login crash",e.getMessage());
             return "Login failed!";
         }
     }
 
     @Override
-    public void checkToken() {
+    public String checkToken() {
 
+        try{
+            String token = "";
+            SharedPrefService sharedPreferences = new SharedPrefService(this.sharedPreferences);
+            if(sharedPreferences.hasKey("Token")){
+                token = sharedPreferences.getPrefString("Token");
+            }
+
+            String data = new WebPostAsync().execute("http://itrivia.eu/api/user/checkToken/", token).get();
+            JSONObject jsonObject = new JSONObject(data);
+            return jsonObject.getString("Message");
+        }catch (Exception e){
+            Log.e("Token crash", e.getMessage());
+            return "Login failed!";
+        }
     }
 }

@@ -33,10 +33,11 @@ public class LoginActivity extends AppCompatActivity {
         textPassword = (TextView) findViewById(R.id.textPassword);
         buttonLogin = (Button) findViewById(R.id.buttonLogin);
 
+        
+
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 if(!textUsername.getText().equals("") && !textPassword.getText().equals("")){
                     User user = new User.Builder()
                             .email(textUsername.getText().toString())
