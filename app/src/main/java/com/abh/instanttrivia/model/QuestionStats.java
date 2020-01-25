@@ -10,6 +10,21 @@ public class QuestionStats {
     private int correctKeys;
     private int totalKeys;
 
+    private QuestionStats(Builder builder){
+
+    }
+
+    public static class Builder{
+
+        public Builder(){
+
+        }
+
+        public QuestionStats build(){
+            return new QuestionStats(this);
+        }
+    }
+
     public int getQuestionId() {
         return questionId;
     }

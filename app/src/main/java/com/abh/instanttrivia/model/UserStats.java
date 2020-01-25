@@ -11,6 +11,21 @@ public class UserStats {
     private int correctKeys;
     private int totalKeys;
 
+    private UserStats(Builder builder){
+
+    }
+
+    private static class Builder{
+
+        public Builder(){
+
+        }
+
+        public UserStats build(){
+            return new UserStats(this);
+        }
+    }
+
     public int getUserId() {
         return userId;
     }

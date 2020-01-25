@@ -8,6 +8,27 @@ public class Question {
     private double difficulty;
     private Category category;
 
+    private Question(Builder builder){
+
+    }
+
+    public static class Builder{
+
+        private int id;
+        private String question;
+        private String answer;
+        private double difficulty;
+        private Category category;
+
+        public Builder(){
+
+        }
+
+        public Question build(){
+            return new Question(this);
+        }
+    }
+
     public int getId() {
         return id;
     }
