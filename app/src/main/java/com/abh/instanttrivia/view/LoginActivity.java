@@ -2,6 +2,7 @@ package com.abh.instanttrivia.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -54,6 +55,7 @@ public class LoginActivity extends AppCompatActivity {
                     if(message.equals("Login succeeded!")){
                         Toast.makeText(getApplication(), message,
                                 Toast.LENGTH_SHORT).show();
+                        goDashboard();
                     }else{
                         Toast.makeText(getApplication(), message,
                                 Toast.LENGTH_SHORT).show();
@@ -67,5 +69,15 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
+    }
+
+    private void goRegister(){
+        Intent intent = new Intent(this, RegisterActivity.class);
+        startActivity(intent);
+    }
+
+    private void goDashboard(){
+        Intent intent = new Intent(this, DashboardActivity.class);
+        startActivity(intent);
     }
 }
