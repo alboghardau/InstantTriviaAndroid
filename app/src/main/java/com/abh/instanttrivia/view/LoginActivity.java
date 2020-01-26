@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,6 +28,9 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //Remove title bar
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        //this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login);
 
         //UI ELEMENTS
@@ -43,7 +48,7 @@ public class LoginActivity extends AppCompatActivity {
                             .email(textUsername.getText().toString())
                             .password((String) textPassword.getText().toString())
                             .build();
-                    UserService userService = new UserService(user);
+                    UserService userService = new UserService(user, getSharedPreferences("settings", MODE_PRIVATE));
 
                     String message = userService.loginUser();
                     if(message.equals("Login succeeded!")){

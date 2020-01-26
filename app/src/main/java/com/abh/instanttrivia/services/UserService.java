@@ -22,6 +22,11 @@ public class UserService implements UserInterface {
 
     @Override
     public void registerUser() {
+        try{
+            String data = new WebPostAsync().execute("http://itrivia.eu/api/user/register/", this.user.toJSON()).get();
+        }catch (Exception e){
+
+        }
 
     }
 

@@ -19,11 +19,12 @@ public class QuestionService implements QuestionInterface {
             String data   = new WebPostAsync().execute("http://itrivia.eu/api/question/getRandomQuestion/", "").get();
 
             JSONObject questionJson = new JSONObject(data);
-            Question question = new Question();
-            question.setId(Integer.parseInt(questionJson.getString("Id")));
-            question.setQuestion(questionJson.getString("Question"));
-            question.setAnswer(questionJson.getString("Answer"));
-            question.setDifficulty(Double.parseDouble(questionJson.getString("Difficulty")));
+            Question question = new Question.Builder()
+                    .id(Integer.parseInt(questionJson.getString("Id")))
+                    .question(questionJson.getString("Question"))
+                    .answer(questionJson.getString("Answer"))
+                    .difficulty(Double.parseDouble(questionJson.getString("Difficulty")))
+                    .build();
 
             JSONObject categoryJson = new JSONObject(questionJson.getString("Category"));
             Category category = new Category(categoryJson.getInt("Id"),
