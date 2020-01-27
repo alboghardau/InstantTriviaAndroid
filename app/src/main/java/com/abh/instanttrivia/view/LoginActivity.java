@@ -23,6 +23,7 @@ public class LoginActivity extends AppCompatActivity {
     //UI VARIABLES
     TextView textUsername;
     TextView textPassword;
+    TextView textRegister;
 
     Button buttonLogin;
 
@@ -37,6 +38,7 @@ public class LoginActivity extends AppCompatActivity {
         //UI ELEMENTS
         textUsername = (TextView) findViewById(R.id.textUsername);
         textPassword = (TextView) findViewById(R.id.textPassword);
+        textRegister = (TextView) findViewById(R.id.textRegister);
         buttonLogin = (Button) findViewById(R.id.buttonLogin);
 
         
