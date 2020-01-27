@@ -15,17 +15,26 @@ public class UserService implements UserInterface {
     private User user;
     private SharedPreferences sharedPreferences;
 
+    //overloaded constructors - checkToken does not require an user object
+    public UserService(SharedPreferences sharedPreferences){
+        this.sharedPreferences = sharedPreferences;
+    }
+
     public UserService(User user, SharedPreferences sharedPreferences) {
         this.user = user;
         this.sharedPreferences = sharedPreferences;
     }
 
     @Override
-    public void registerUser() {
+    public String registerUser() {
         try{
             String data = new WebPostAsync().execute("http://itrivia.eu/api/user/register/", this.user.toJSON()).get();
-        }catch (Exception e){
+            JSONObject jsonObject = new JSONObject(data);
 
+            return jsonObject.getString("Message");
+        }catch (Exception e){
+            Log.e("registerUser", e.getMessage());
+            return "Register failed!";
         }
 
     }

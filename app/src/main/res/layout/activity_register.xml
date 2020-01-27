@@ -15,6 +15,7 @@
         android:layout_marginEnd="103dp"
         android:background="@drawable/textview_rounded"
         android:ems="10"
+        android:hint="Username"
         android:inputType="textPassword"
         android:padding="10dp"
         android:textColor="#7E57C2"
@@ -32,6 +33,7 @@
         android:layout_marginEnd="103dp"
         android:background="@drawable/textview_rounded"
         android:ems="10"
+        android:hint="Password"
         android:inputType="textPassword"
         android:padding="10dp"
         android:textColor="#7E57C2"
@@ -50,6 +52,7 @@
         android:background="@drawable/textview_rounded"
         android:capitalize="none"
         android:ems="10"
+        android:hint="E-Mail"
         android:inputType="textPersonName"
         android:padding="10dp"
         android:textColor="#7E57C2"
@@ -88,5 +91,19 @@
         app:srcCompat="@drawable/top_short"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="81dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="81dp"
+        android:text="Register new account"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

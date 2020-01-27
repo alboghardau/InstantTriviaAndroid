@@ -42,9 +42,6 @@ public class LoginActivity extends AppCompatActivity {
         textRegister = (TextView) findViewById(R.id.textRegister);
         buttonLogin = (Button) findViewById(R.id.buttonLogin);
 
-        SharedPreferences sharedPreferences = getSharedPreferences("settings", MODE_PRIVATE);
-        Log.e("reg token", sharedPreferences.getString("token","nema"));
-
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -74,6 +71,13 @@ public class LoginActivity extends AppCompatActivity {
                 goRegister();
             }
         });
+
+        //test token if valid login
+        SharedPreferences sharedPreferences = getSharedPreferences("settings", MODE_PRIVATE);
+        String token = sharedPreferences.getString("Token", null);
+        if(token != null){
+
+        }
     }
 
     private void goRegister(){
