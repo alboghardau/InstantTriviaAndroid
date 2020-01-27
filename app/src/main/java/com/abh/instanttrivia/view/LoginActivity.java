@@ -3,6 +3,7 @@ package com.abh.instanttrivia.view;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -41,7 +42,8 @@ public class LoginActivity extends AppCompatActivity {
         textRegister = (TextView) findViewById(R.id.textRegister);
         buttonLogin = (Button) findViewById(R.id.buttonLogin);
 
-        
+        SharedPreferences sharedPreferences = getSharedPreferences("settings", MODE_PRIVATE);
+        Log.e("reg token", sharedPreferences.getString("token","nema"));
 
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,14 +65,15 @@ public class LoginActivity extends AppCompatActivity {
                                 Toast.LENGTH_SHORT).show();
                     }
                 }
-
             }
         });
 
-
-
-
-
+        textRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goRegister();
+            }
+        });
     }
 
     private void goRegister(){
