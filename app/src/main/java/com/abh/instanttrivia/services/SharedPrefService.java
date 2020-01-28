@@ -28,5 +28,15 @@ public class SharedPrefService {
             return false;
         }
     }
+
+    public void setPrefInt(String name, int value){
+        SharedPreferences.Editor editor = this.sharedPreferences.edit();
+        editor.putInt(name, value);
+        editor.apply();
+    }
+
+    public int getPrefInt(String name){
+        return this.sharedPreferences.getInt(name, 0);
+    }
 }
 
