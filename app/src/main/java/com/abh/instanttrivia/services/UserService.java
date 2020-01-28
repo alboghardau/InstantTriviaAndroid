@@ -1,5 +1,6 @@
 package com.abh.instanttrivia.services;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.util.JsonReader;
 import android.util.Log;
@@ -25,6 +26,7 @@ public class UserService implements UserInterface {
         this.sharedPreferences = sharedPreferences;
     }
 
+    //TODO
     @Override
     public String registerUser() {
         try{
@@ -61,19 +63,20 @@ public class UserService implements UserInterface {
 
     @Override
     public String checkToken() {
-
         try{
-            String token = "";
+            JSONObject jsonSend = new JSONObject();
             SharedPrefService sharedPreferences = new SharedPrefService(this.sharedPreferences);
             if(sharedPreferences.hasKey("Token")){
-                token = sharedPreferences.getPrefString("Token");
+                jsonSend.put("Token", sharedPreferences.getPrefString("Token"));
             }
-
-            String data = new WebPostAsync().execute("http://itrivia.eu/api/user/checkToken/", token).get();
+            String data = new WebPostAsync().execute("http://itrivia.eu/api/user/tokenLogin/", jsonSend.toString()).get();
             JSONObject jsonObject = new JSONObject(data);
+            if(jsonObject.has("UserId")){
+                sharedPreferences.setPrefInt("UserId", jsonObject.getInt("UserId"));
+            }
             return jsonObject.getString("Message");
         }catch (Exception e){
-            Log.e("Token crash", e.getMessage());
+            Log.e("checkToken", e.toString());
             return "Login failed!";
         }
     }
