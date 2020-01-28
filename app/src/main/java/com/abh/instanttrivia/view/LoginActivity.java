@@ -42,6 +42,18 @@ public class LoginActivity extends AppCompatActivity {
         textRegister = (TextView) findViewById(R.id.textRegister);
         buttonLogin = (Button) findViewById(R.id.buttonLogin);
 
+        //TODO reactivate goDash
+        //test token if valid open dashboard
+        SharedPreferences sharedPreferences = getSharedPreferences("settings", MODE_PRIVATE);
+        String token = sharedPreferences.getString("Token", null);
+        if(token != null){
+            UserService userService = new UserService(getSharedPreferences("settings", MODE_PRIVATE));
+            String message = userService.checkToken();
+            if(message.equals("Login valid!")){
+                //goDashboard();
+            }
+        }
+
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -71,13 +83,6 @@ public class LoginActivity extends AppCompatActivity {
                 goRegister();
             }
         });
-
-        //test token if valid login
-        SharedPreferences sharedPreferences = getSharedPreferences("settings", MODE_PRIVATE);
-        String token = sharedPreferences.getString("Token", null);
-        if(token != null){
-
-        }
     }
 
     private void goRegister(){
