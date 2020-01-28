@@ -25,7 +25,7 @@ public class StringHelper{
         }
     }
 
-    public static  boolean isPassword(String password){
+    public static boolean isPassword(String password){
         if(password.length() >= 8){
             return true;
         }else{

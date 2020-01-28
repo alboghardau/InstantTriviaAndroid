@@ -33,12 +33,12 @@ public class UserService implements UserInterface {
             String data = new WebPostAsync().execute("http://itrivia.eu/api/user/register/", this.user.toJSON()).get();
             JSONObject jsonObject = new JSONObject(data);
 
+
             return jsonObject.getString("Message");
         }catch (Exception e){
-            Log.e("registerUser", e.getMessage());
+            Log.e("registerUser", e.toString());
             return "Register failed!";
         }
-
     }
 
     @Override
@@ -49,14 +49,12 @@ public class UserService implements UserInterface {
             JSONObject jsonObject = new JSONObject(data);
             if(jsonObject.has("Token")) {
                 String token = jsonObject.getString("Token");
-
                 SharedPrefService sharedPrefService = new SharedPrefService(this.sharedPreferences);
                 sharedPrefService.setPrefString("Token", token);
-                Log.e("TOKEN", token);
             }
             return jsonObject.getString("Message");
         }catch (Exception e){
-            Log.e("login crash",e.getMessage());
+            Log.e("loginUser",e.toString());
             return "Login failed!";
         }
     }
