@@ -1,6 +1,9 @@
 //USER MODEL WITH BUILDER PATTERN
 package com.abh.instanttrivia.model;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class User {
 
     private int id;
@@ -81,5 +84,18 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String toJSON(){
+        JSONObject jsonObject = new JSONObject();
+        try{
+            jsonObject.put("Username", this.getUsername());
+            jsonObject.put("Email", this.getEmail());
+            jsonObject.put("Password", this.getPassword());
+            return jsonObject.toString();
+        }catch (JSONException e) {
+            e.printStackTrace();
+            return "";
+        }
     }
 }
