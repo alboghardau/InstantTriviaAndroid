@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".view.ForgotPassword"></activity>
+        <activity android:name=".view.GameRandomTest"></activity>
+        <activity android:name=".view.ForgotPassword" />
         <activity android:name=".view.RegisterActivity" />
         <activity android:name=".view.DashboardActivity" />
         <activity android:name=".view.LoginActivity">

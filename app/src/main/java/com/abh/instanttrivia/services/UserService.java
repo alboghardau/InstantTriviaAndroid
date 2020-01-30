@@ -26,13 +26,20 @@ public class UserService implements UserInterface {
         this.sharedPreferences = sharedPreferences;
     }
 
+    public User getUser(){
+        return this.user;
+    }
+
+    public void setUser(User user){
+        this.user = user;
+    }
+
     //TODO
     @Override
     public String registerUser() {
         try{
             String data = new WebPostAsync().execute("http://itrivia.eu/api/user/register/", this.user.toJSON()).get();
             JSONObject jsonObject = new JSONObject(data);
-
 
             return jsonObject.getString("Message");
         }catch (Exception e){

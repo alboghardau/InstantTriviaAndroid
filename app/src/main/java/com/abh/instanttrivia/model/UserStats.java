@@ -18,7 +18,7 @@ public class UserStats {
 
     }
 
-    private static class Builder{
+    public static class Builder{
 
         private int userId;
         private int experience;

@@ -1,5 +1,8 @@
 package com.abh.instanttrivia.model;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class CategoryStats {
 
     private int categoryId;
@@ -93,5 +96,20 @@ public class CategoryStats {
 
     public void setAnswered(int answered) {
         this.answered = answered;
+    }
+
+    public String toJSON(){
+        JSONObject jsonObject = new JSONObject();
+        try{
+            jsonObject.put("CategoryId", this.getCategoryId());
+            jsonObject.put("TotalQuestions", this.getTotalQuestions());
+            jsonObject.put("AverageDifficulty", this.getAverageDifficulty());
+            jsonObject.put("Played", this.getPlayed());
+            jsonObject.put("Answered", this.getAnswered());
+            return jsonObject.toString();
+        }catch (JSONException e) {
+            e.printStackTrace();
+            return "";
+        }
     }
 }

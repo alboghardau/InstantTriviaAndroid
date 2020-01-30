@@ -1,6 +1,11 @@
 package com.abh.instanttrivia;
 
+import com.abh.instanttrivia.helpers.QuestionHelper;
+
 import org.junit.Test;
+
+import java.io.Console;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -12,6 +17,7 @@ import static org.junit.Assert.*;
 public class ExampleUnitTest {
     @Test
     public void addition_isCorrect() {
-        assertEquals(4, 2 + 2);
+        List<Character> list = QuestionHelper.getAnswerChars("ANSWER");
+        System.out.println(list.toString());
     }
 }
