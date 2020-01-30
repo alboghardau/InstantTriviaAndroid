@@ -11,6 +11,11 @@ public class UserStatsService implements UserStatsInterface {
 
     private SharedPrefService sharedPrefService;
 
+    //empty constructor for testing
+    public UserStatsService(){
+
+    }
+
     public UserStatsService(SharedPrefService sharedPrefService){
         this.sharedPrefService = sharedPrefService;
     }
