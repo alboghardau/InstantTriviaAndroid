@@ -88,6 +88,7 @@ public class LoginActivity extends AppCompatActivity {
     private void goRegister(){
         Intent intent = new Intent(this, RegisterActivity.class);
         startActivity(intent);
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
 
     private void goDashboard(){
